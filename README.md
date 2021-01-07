@@ -4,4 +4,3 @@ This is a refresh structuring of AAP-JUCE sample builder, specific to AudioPlugi
 
 This repository contains JUCE as a dependency for simpler reason: AudioPluginHost is the application within itself. Other JUCE app ports would have different structure, or even aap-juce may submodule JUCE by itself (then this repo will change as well).
 
-Currently it builds, but the resulting host app fails to instantiate any plugin. Needs investigation.
