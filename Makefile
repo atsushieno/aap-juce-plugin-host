@@ -1,6 +1,6 @@
 
 # path to aap-juce directory.
-AAP_JUCE_DIR=$(shell pwd)/aap-juce
+AAP_JUCE_DIR=$(shell pwd)/external/aap-juce
 
 # path to application repo. The default is the submodule path.
 APP_SRC_DIR=$(shell pwd)/external/JUCE/extras/AudioPluginHost
