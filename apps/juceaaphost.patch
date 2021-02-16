@@ -1,5 +1,5 @@
 diff --git a/extras/AudioPluginHost/Source/HostStartup.cpp b/extras/AudioPluginHost/Source/HostStartup.cpp
-index 3e7cc7096..efd3044fd 100644
+index 2aca5df3d..e3b900e49 100644
 --- a/extras/AudioPluginHost/Source/HostStartup.cpp
 +++ b/extras/AudioPluginHost/Source/HostStartup.cpp
 @@ -28,7 +28,7 @@
@@ -36,14 +36,14 @@ index 59f23168d..e9d4e477c 100644
      }
  {
 diff --git a/extras/AudioPluginHost/Source/UI/GraphEditorPanel.cpp b/extras/AudioPluginHost/Source/UI/GraphEditorPanel.cpp
-index b8bdc95e0..e52fd8b53 100644
+index 9591c88ac..7eb9e4ca7 100644
 --- a/extras/AudioPluginHost/Source/UI/GraphEditorPanel.cpp
 +++ b/extras/AudioPluginHost/Source/UI/GraphEditorPanel.cpp
 @@ -27,9 +27,10 @@
  #include "GraphEditorPanel.h"
  #include "../Plugins/InternalPlugins.h"
  #include "MainHostWindow.h"
-+#include "../../../../aap-juce/modules/juceaap_audio_plugin_processors/juce_android_audio_plugin_format.h"
++#include "../../../../aap-juce/modules/juceaap_audio_processors/juce_android_audio_plugin_format.h"
  
  //==============================================================================
 -#if JUCE_IOS
@@ -84,14 +84,14 @@ index b8bdc95e0..e52fd8b53 100644
     #endif
  
 diff --git a/extras/AudioPluginHost/Source/UI/MainHostWindow.cpp b/extras/AudioPluginHost/Source/UI/MainHostWindow.cpp
-index dfd4927c8..e6b11adbd 100644
+index dfd4927c8..127bf4a2b 100644
 --- a/extras/AudioPluginHost/Source/UI/MainHostWindow.cpp
 +++ b/extras/AudioPluginHost/Source/UI/MainHostWindow.cpp
 @@ -26,6 +26,7 @@
  #include <JuceHeader.h>
  #include "MainHostWindow.h"
  #include "../Plugins/InternalPlugins.h"
-+#include "../../../../aap-juce/modules/juceaap_audio_plugin_processors/juce_android_audio_plugin_format.h"
++#include "../../../../aap-juce/modules/juceaap_audio_processors/juce_android_audio_plugin_format.h"
  
  
  //==============================================================================
