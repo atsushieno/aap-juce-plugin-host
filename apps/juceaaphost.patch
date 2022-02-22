@@ -43,7 +43,7 @@ index 9591c88ac..7eb9e4ca7 100644
  #include "GraphEditorPanel.h"
  #include "../Plugins/InternalPlugins.h"
  #include "MainHostWindow.h"
-+#include "../../../../aap-juce/modules/juceaap_audio_processors/juce_android_audio_plugin_format.h"
++#include "juceaap_audio_processors/juce_android_audio_plugin_format.h"
  
  //==============================================================================
 -#if JUCE_IOS
@@ -91,7 +91,7 @@ index dfd4927c8..127bf4a2b 100644
  #include <JuceHeader.h>
  #include "MainHostWindow.h"
  #include "../Plugins/InternalPlugins.h"
-+#include "../../../../aap-juce/modules/juceaap_audio_processors/juce_android_audio_plugin_format.h"
++#include "juceaap_audio_processors/juce_android_audio_plugin_format.h"
  
  
  //==============================================================================
