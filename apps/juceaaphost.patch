@@ -1,5 +1,5 @@
 diff --git a/extras/AudioPluginHost/Source/HostStartup.cpp b/extras/AudioPluginHost/Source/HostStartup.cpp
-index 2aca5df3d..e3b900e49 100644
+index 175d85055..9c7cda1a1 100644
 --- a/extras/AudioPluginHost/Source/HostStartup.cpp
 +++ b/extras/AudioPluginHost/Source/HostStartup.cpp
 @@ -28,7 +28,7 @@
@@ -10,12 +10,12 @@ index 2aca5df3d..e3b900e49 100644
 +// #error "If you're building the audio plugin host, you probably want to enable VST and/or AU support"
  #endif
  
- 
+ class PluginScannerSubprocess : private ChildProcessWorker,
 diff --git a/extras/AudioPluginHost/Source/Plugins/InternalPlugins.cpp b/extras/AudioPluginHost/Source/Plugins/InternalPlugins.cpp
-index 59f23168d..e9d4e477c 100644
+index 996ad5107..e9f29ad96 100644
 --- a/extras/AudioPluginHost/Source/Plugins/InternalPlugins.cpp
 +++ b/extras/AudioPluginHost/Source/Plugins/InternalPlugins.cpp
-@@ -421,15 +421,15 @@ InternalPluginFormat::InternalPluginFormat()
+@@ -441,15 +441,15 @@ InternalPluginFormat::InternalPluginFormat()
          [] { return std::make_unique<InternalPlugin> (std::make_unique<SineWaveSynth>()); },
          [] { return std::make_unique<InternalPlugin> (std::make_unique<ReverbPlugin>()); },
  
@@ -36,7 +36,7 @@ index 59f23168d..e9d4e477c 100644
      }
  {
 diff --git a/extras/AudioPluginHost/Source/UI/GraphEditorPanel.cpp b/extras/AudioPluginHost/Source/UI/GraphEditorPanel.cpp
-index 9591c88ac..7eb9e4ca7 100644
+index e7a90ce55..c79951194 100644
 --- a/extras/AudioPluginHost/Source/UI/GraphEditorPanel.cpp
 +++ b/extras/AudioPluginHost/Source/UI/GraphEditorPanel.cpp
 @@ -27,9 +27,10 @@
@@ -65,7 +65,7 @@ index 9591c88ac..7eb9e4ca7 100644
  
       std::unique_ptr<PluginDirectoryScanner> scanner;
       FileSearchPath paths;
-@@ -1097,7 +1104,7 @@ struct GraphDocumentComponent::PluginListBoxModel    : public ListBoxModel,
+@@ -1091,7 +1098,7 @@ struct GraphDocumentComponent::PluginListBoxModel    : public ListBoxModel,
          knownPlugins.addChangeListener (this);
          owner.addMouseListener (this, true);
  
@@ -74,7 +74,7 @@ index 9591c88ac..7eb9e4ca7 100644
          scanner.reset (new AUScanner (knownPlugins));
         #endif
      }
-@@ -1146,7 +1153,7 @@ struct GraphDocumentComponent::PluginListBoxModel    : public ListBoxModel,
+@@ -1140,7 +1147,7 @@ struct GraphDocumentComponent::PluginListBoxModel    : public ListBoxModel,
  
      bool isOverSelectedRow = false;
  
@@ -84,7 +84,7 @@ index 9591c88ac..7eb9e4ca7 100644
     #endif
  
 diff --git a/extras/AudioPluginHost/Source/UI/MainHostWindow.cpp b/extras/AudioPluginHost/Source/UI/MainHostWindow.cpp
-index dfd4927c8..127bf4a2b 100644
+index a0e410fda..14f564f3b 100644
 --- a/extras/AudioPluginHost/Source/UI/MainHostWindow.cpp
 +++ b/extras/AudioPluginHost/Source/UI/MainHostWindow.cpp
 @@ -26,6 +26,7 @@
@@ -93,18 +93,17 @@ index dfd4927c8..127bf4a2b 100644
  #include "../Plugins/InternalPlugins.h"
 +#include "juceaap_audio_processors/juce_android_audio_plugin_format.h"
  
+ constexpr const char* scanModeKey = "pluginScanMode";
  
- //==============================================================================
-@@ -79,6 +80,8 @@ MainHostWindow::MainHostWindow()
+@@ -277,6 +278,7 @@ MainHostWindow::MainHostWindow()
  {
      formatManager.addDefaultFormats();
      formatManager.addFormat (new InternalPluginFormat());
-+    aap::getPluginHostPAL()->setPluginListCache(aap::getPluginHostPAL()->getInstalledPlugins());
 +    formatManager.addFormat (new juceaap::AndroidAudioPluginFormat());
  
      auto safeThis = SafePointer<MainHostWindow> (this);
      RuntimePermissions::request (RuntimePermissions::recordAudio,
-@@ -214,6 +217,7 @@ void MainHostWindow::changeListenerCallback (ChangeBroadcaster* changed)
+@@ -436,6 +438,7 @@ void MainHostWindow::changeListenerCallback (ChangeBroadcaster* changed)
      {
          menuItemsChanged();
  
@@ -112,7 +111,7 @@ index dfd4927c8..127bf4a2b 100644
          // save the plugin list every time it gets changed, so that if we're scanning
          // and it crashes, we've still saved the previous ones
          if (auto savedPluginList = std::unique_ptr<XmlElement> (knownPluginList.createXml()))
-@@ -221,6 +225,7 @@ void MainHostWindow::changeListenerCallback (ChangeBroadcaster* changed)
+@@ -443,6 +446,7 @@ void MainHostWindow::changeListenerCallback (ChangeBroadcaster* changed)
              getAppProperties().getUserSettings()->setValue ("pluginList", savedPluginList.get());
              getAppProperties().saveIfNeeded();
          }
