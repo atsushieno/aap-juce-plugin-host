@@ -43,7 +43,7 @@ index e7a90ce55..c79951194 100644
  #include "GraphEditorPanel.h"
  #include "../Plugins/InternalPlugins.h"
  #include "MainHostWindow.h"
-+#include "juceaap_audio_processors/juce_android_audio_plugin_format.h"
++#include "juceaap_audio_processors/juceaap_audio_plugin_format.h"
  
  //==============================================================================
 -#if JUCE_IOS
@@ -91,7 +91,7 @@ index a0e410fda..14f564f3b 100644
  #include <JuceHeader.h>
  #include "MainHostWindow.h"
  #include "../Plugins/InternalPlugins.h"
-+#include "juceaap_audio_processors/juce_android_audio_plugin_format.h"
++#include "juceaap_audio_processors/juceaap_audio_plugin_format.h"
  
  constexpr const char* scanModeKey = "pluginScanMode";
  
