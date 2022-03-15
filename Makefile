@@ -17,6 +17,15 @@ PATCH_FILE=$(shell pwd)/apps/juceaaphost.patch
 # diff depth, depending on the nested directory in the source tree, if patch exists.
 PATCH_DEPTH=3
 
+# JUCE patches if any
+JUCE_PATCHES= \
+	$(shell pwd)/apps/juce-modules.patch \
+	$(shell pwd)/apps/juce-modules-kill-system-class-loader.patch \
+	$(shell pwd)/apps/juce-modules-thread-via-dalvik.patch
+
+# JUCE diff depth, depending on the nested directory in the source tree, if patches exist.
+JUCE_PATCH_DEPTH=1
+
 # 1 if it should skip metadata generator. Plugins need it, hosts don't.
 SKIP_METADATA_GENERATOR=1
 
