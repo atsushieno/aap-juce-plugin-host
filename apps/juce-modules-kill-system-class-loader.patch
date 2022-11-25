@@ -1,5 +1,5 @@
 diff --git a/modules/juce_core/native/juce_android_JNIHelpers.cpp b/modules/juce_core/native/juce_android_JNIHelpers.cpp
-index 537346914..d00245fa4 100644
+index 3d68d0f9e..8aac4e020 100644
 --- a/modules/juce_core/native/juce_android_JNIHelpers.cpp
 +++ b/modules/juce_core/native/juce_android_JNIHelpers.cpp
 @@ -149,6 +149,8 @@ static File getCodeCacheDirectory()
@@ -49,7 +49,7 @@ index 537346914..d00245fa4 100644
                          else
                          {
 diff --git a/modules/juce_core/native/juce_android_Threads.cpp b/modules/juce_core/native/juce_android_Threads.cpp
-index f9ba13b0a..cd1978b98 100644
+index 71d76de09..b970fd986 100644
 --- a/modules/juce_core/native/juce_android_Threads.cpp
 +++ b/modules/juce_core/native/juce_android_Threads.cpp
 @@ -37,6 +37,7 @@ DECLARE_JNI_CLASS (AndroidResolveInfo, "android/content/pm/ResolveInfo")

@@ -1,5 +1,5 @@
 diff --git a/modules/juce_audio_processors/scanning/juce_PluginDirectoryScanner.cpp b/modules/juce_audio_processors/scanning/juce_PluginDirectoryScanner.cpp
-index 9eab44c26..9d0c1347e 100644
+index 7f79c0d38..7c6c93151 100644
 --- a/modules/juce_audio_processors/scanning/juce_PluginDirectoryScanner.cpp
 +++ b/modules/juce_audio_processors/scanning/juce_PluginDirectoryScanner.cpp
 @@ -125,7 +125,11 @@ bool PluginDirectoryScanner::skipNextFile()

@@ -1,8 +1,8 @@
 diff --git a/modules/juce_core/native/juce_android_JNIHelpers.h b/modules/juce_core/native/juce_android_JNIHelpers.h
-index 4131d326f..2924baf0c 100644
+index 441d9f79e..0b1b2db79 100644
 --- a/modules/juce_core/native/juce_android_JNIHelpers.h
 +++ b/modules/juce_core/native/juce_android_JNIHelpers.h
-@@ -769,6 +769,14 @@ DECLARE_JNI_CLASS (AndroidBuildVersion, "android/os/Build$VERSION")
+@@ -781,6 +781,14 @@ DECLARE_JNI_CLASS (AndroidBuildVersion, "android/os/Build$VERSION")
   DECLARE_JNI_CLASS (AndroidSurfaceHolder, "android/view/SurfaceHolder")
  #undef JNI_CLASS_MEMBERS
  
@@ -18,10 +18,10 @@ index 4131d326f..2924baf0c 100644
  namespace
  {
 diff --git a/modules/juce_core/native/juce_posix_SharedCode.h b/modules/juce_core/native/juce_posix_SharedCode.h
-index dbf06043a..c04ba9518 100644
+index 700e191e9..0b8329497 100644
 --- a/modules/juce_core/native/juce_posix_SharedCode.h
 +++ b/modules/juce_core/native/juce_posix_SharedCode.h
-@@ -882,6 +882,32 @@ static void* threadEntryProc (void* userData)
+@@ -888,6 +888,32 @@ static void* threadEntryProc (void* userData)
  extern pthread_t juce_createRealtimeAudioThread (void* (*entry) (void*), void* userPtr);
  #endif
  
@@ -54,7 +54,7 @@ index dbf06043a..c04ba9518 100644
  void Thread::launchThread()
  {
     #if JUCE_ANDROID
-@@ -903,6 +929,18 @@ void Thread::launchThread()
+@@ -909,6 +935,18 @@ void Thread::launchThread()
      pthread_attr_t attr;
      pthread_attr_t* attrPtr = nullptr;
  
@@ -73,7 +73,7 @@ index dbf06043a..c04ba9518 100644
      if (pthread_attr_init (&attr) == 0)
      {
          attrPtr = &attr;
-@@ -919,6 +957,7 @@ void Thread::launchThread()
+@@ -925,6 +963,7 @@ void Thread::launchThread()
  
      if (attrPtr != nullptr)
          pthread_attr_destroy (attrPtr);
@@ -82,7 +82,7 @@ index dbf06043a..c04ba9518 100644
  
  void Thread::closeThreadHandle()
 diff --git a/modules/juce_core/threads/juce_Thread.h b/modules/juce_core/threads/juce_Thread.h
-index 5db90efcb..ad70793e0 100644
+index 19634d678..b183f4732 100644
 --- a/modules/juce_core/threads/juce_Thread.h
 +++ b/modules/juce_core/threads/juce_Thread.h
 @@ -381,6 +381,7 @@ public:
