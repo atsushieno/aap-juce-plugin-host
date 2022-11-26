@@ -1,0 +1,53 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+
+android {
+    namespace = "org.androidaudioplugin.juceports.audiopluginhost"
+    compileSdkVersion 33
+
+    defaultConfig {
+        applicationId "org.androidaudioplugin.ports.audiopluginhost"
+        minSdkVersion    29
+        targetSdkVersion 33
+        externalNativeBuild {
+            cmake {
+                arguments "-DJUCE_DIR=${System.env.JUCE_DIR != null ? System.env.JUCE_DIR : ''}", "-DAAP_DIR=${System.env.AAP_DIR != null ? System.env.AAP_DIR : ''}", "-DAAP_JUCE_DIR=${System.env.AAP_JUCE_DIR != null ? System.env.AAP_JUCE_DIR : ''}", "-DANDROID_STL=c++_static", "-DANDROID_CPP_FEATURES=exceptions rtti", "-DJUCE_BUILD_EXTRAS=ON"
+                targets "AudioPluginHost"
+            }
+        }
+        proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+
+    // unlike plugin projects we have to resolve androidaudioplugin in host
+    buildFeatures {
+        prefab = true
+    }
+
+    sourceSets {
+        main.java.srcDirs +=
+            [//"../external/JUCE/modules/juce_core/native/javacore/init",
+             //"../external/JUCE/modules/juce_core/native/javacore/app",
+             "../external/JUCE/modules/juce_gui_basics/native/javaopt/app"]
+        main.res.srcDirs +=
+            []
+    }
+
+    externalNativeBuild {
+        cmake {
+            version = "3.22.1"
+            path "src/main/cpp/CMakeLists.txt"
+        }
+    }
+
+    ndkVersion "$ndk_version"
+}
+dependencies {
+    implementation "androidx.core:core-ktx:1.9.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.startup:startup-runtime:1.1.1"
+    implementation "org.androidaudioplugin:androidaudioplugin:$aap_version"
+}
+

@@ -119,3 +119,54 @@ index a0e410fda..14f564f3b 100644
      }
      else if (graphHolder != nullptr && changed == graphHolder->graph.get())
      {
+diff --git a/extras/AudioPluginHost/CMakeLists.txt b/extras/AudioPluginHost/CMakeLists.txt
+index cd7f495e8..7417c49f6 100644
+--- a/extras/AudioPluginHost/CMakeLists.txt
++++ b/extras/AudioPluginHost/CMakeLists.txt
+@@ -21,12 +21,37 @@
+ #
+ # ==============================================================================
+ 
++
+ juce_add_gui_app(AudioPluginHost
+     BUNDLE_ID                       com.juce.pluginhost
+     ICON_BIG                        "${CMAKE_CURRENT_SOURCE_DIR}/Source/JUCEAppIcon.png"
+     MICROPHONE_PERMISSION_ENABLED   TRUE
+     PLUGINHOST_AU                   TRUE)
+ 
++# begin JUCEAAP specific -->
++# It is not beautiful, but there does not seem to be any way to add custom include directory for modules.
++include_directories(
++        "${AAP_DIR}/include"
++)
++
++juce_add_module(
++        "${AAP_JUCE_DIR}/modules/juceaap_audio_processors")
++
++if (ANDROID)
++
++    # dependencies
++    find_library(log "log")
++    find_library(android "android")
++    find_library(glesv2 "GLESv2")
++    find_library(egl "EGL")
++    set(cpufeatures_lib "cpufeatures")
++    set(oboe_lib "oboe")
++    set(CMAKE_CXX_FLAGS_RELEASE "-O3")
++
++    #find_library(androidaudioplugin "androidaudioplugin")
++endif (ANDROID)
++# <-- end JUCEAAP specific
++
+ juce_generate_juce_header(AudioPluginHost)
+ 
+ target_sources(AudioPluginHost PRIVATE
+@@ -68,6 +93,8 @@ target_compile_definitions(AudioPluginHost PRIVATE
+ 
+ target_link_libraries(AudioPluginHost PRIVATE
+     AudioPluginHostData
++    juceaap_audio_processors
++    androidaudioplugin
+     juce::juce_audio_utils
+     juce::juce_cryptography
+     juce::juce_dsp

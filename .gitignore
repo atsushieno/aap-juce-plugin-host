@@ -1,2 +1,6 @@
-apps/AudioPluginHost
+local.properties
+.idea
+.cxx
+build
+.gradle
 
