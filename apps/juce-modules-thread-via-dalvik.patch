@@ -1,9 +1,9 @@
 diff --git a/modules/juce_core/native/juce_android_JNIHelpers.h b/modules/juce_core/native/juce_android_JNIHelpers.h
-index 441d9f79e..0b1b2db79 100644
+index bdfa4c388..e873e815a 100644
 --- a/modules/juce_core/native/juce_android_JNIHelpers.h
 +++ b/modules/juce_core/native/juce_android_JNIHelpers.h
-@@ -781,6 +781,14 @@ DECLARE_JNI_CLASS (AndroidBuildVersion, "android/os/Build$VERSION")
-  DECLARE_JNI_CLASS (AndroidSurfaceHolder, "android/view/SurfaceHolder")
+@@ -793,6 +793,14 @@ DECLARE_JNI_CLASS (AndroidSurfaceView, "android/view/SurfaceView")
+ DECLARE_JNI_CLASS (AndroidSurfaceHolder, "android/view/SurfaceHolder")
  #undef JNI_CLASS_MEMBERS
  
 +#define JNI_CLASS_MEMBERS(METHOD, STATICMETHOD, FIELD, STATICFIELD, CALLBACK) \
@@ -18,7 +18,7 @@ index 441d9f79e..0b1b2db79 100644
  namespace
  {
 diff --git a/modules/juce_core/native/juce_posix_SharedCode.h b/modules/juce_core/native/juce_posix_SharedCode.h
-index 700e191e9..0b8329497 100644
+index 66ff9669b..a03955ca9 100644
 --- a/modules/juce_core/native/juce_posix_SharedCode.h
 +++ b/modules/juce_core/native/juce_posix_SharedCode.h
 @@ -888,6 +888,32 @@ static void* threadEntryProc (void* userData)
