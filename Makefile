@@ -20,7 +20,8 @@ PATCH_DEPTH=3
 # JUCE patches if any
 JUCE_PATCHES= \
 	$(shell pwd)/apps/juce-modules.patch \
-	$(shell pwd)/apps/juce-modules-thread-via-dalvik.patch
+	$(shell pwd)/external/aap-juce/JUCE-support-Android-thread-via-dalvik-juce7.patch \
+	$(shell pwd)/external/aap-juce/JUCE-support-Android-disable-detach-current-thread.patch
 
 # JUCE diff depth, depending on the nested directory in the source tree, if patches exist.
 JUCE_PATCH_DEPTH=1
