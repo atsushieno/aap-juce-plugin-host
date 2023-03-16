@@ -32,7 +32,7 @@
         <MODULEPATH id="juce_opengl" path="./juce-modules"/>
         <MODULEPATH id="juce_audio_utils" path="./juce-modules"/>
         <MODULEPATH id="juce_dsp" path="./juce-modules"/>
-        <MODULEPATH id="juceaap_audio_processors" path="./modules"/>
+        <MODULEPATH id="juceaap_audio_processors" path="./aap-modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile" smallIcon="c97aUr" bigIcon="c97aUr"
@@ -62,7 +62,7 @@
         <MODULEPATH id="juce_opengl" path="./juce-modules"/>
         <MODULEPATH id="juce_audio_utils" path="./juce-modules"/>
         <MODULEPATH id="juce_dsp" path="./juce-modules"/>
-        <MODULEPATH id="juceaap_audio_processors" path="./modules"/>
+        <MODULEPATH id="juceaap_audio_processors" path="./aap-modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
     <VS2015 targetFolder="Builds/VisualStudio2015" smallIcon="c97aUr" bigIcon="c97aUr"
@@ -86,7 +86,7 @@
         <MODULEPATH id="juce_opengl" path="./juce-modules"/>
         <MODULEPATH id="juce_audio_utils" path="./juce-modules"/>
         <MODULEPATH id="juce_dsp" path="./juce-modules"/>
-        <MODULEPATH id="juceaap_audio_processors" path="./modules"/>
+        <MODULEPATH id="juceaap_audio_processors" path="./aap-modules"/>
       </MODULEPATHS>
     </VS2015>
     <VS2017 targetFolder="Builds/VisualStudio2017" smallIcon="c97aUr" bigIcon="c97aUr"
@@ -110,7 +110,7 @@
         <MODULEPATH id="juce_opengl" path="./juce-modules"/>
         <MODULEPATH id="juce_audio_utils" path="./juce-modules"/>
         <MODULEPATH id="juce_dsp" path="./juce-modules"/>
-        <MODULEPATH id="juceaap_audio_processors" path="./modules"/>
+        <MODULEPATH id="juceaap_audio_processors" path="./aap-modules"/>
       </MODULEPATHS>
     </VS2017>
     <VS2019 targetFolder="Builds/VisualStudio2019" smallIcon="c97aUr" bigIcon="c97aUr"
@@ -134,7 +134,7 @@
         <MODULEPATH id="juce_opengl" path="./juce-modules"/>
         <MODULEPATH id="juce_audio_utils" path="./juce-modules"/>
         <MODULEPATH id="juce_dsp" path="./juce-modules"/>
-        <MODULEPATH id="juceaap_audio_processors" path="./modules"/>
+        <MODULEPATH id="juceaap_audio_processors" path="./aap-modules"/>
       </MODULEPATHS>
     </VS2019>
     <XCODE_IPHONE targetFolder="Builds/iOS" iosScreenOrientation="" iPadScreenOrientation=""
@@ -161,7 +161,7 @@
         <MODULEPATH id="juce_opengl" path="./juce-modules"/>
         <MODULEPATH id="juce_audio_utils" path="./juce-modules"/>
         <MODULEPATH id="juce_dsp" path="./juce-modules"/>
-        <MODULEPATH id="juceaap_audio_processors" path="./modules"/>
+        <MODULEPATH id="juceaap_audio_processors" path="./aap-modules"/>
       </MODULEPATHS>
     </XCODE_IPHONE>
     <ANDROIDSTUDIO targetFolder="Builds/Android" androidMinimumSDK="29" androidTargetSDK="33" androidInternetNeeded="1"
@@ -193,7 +193,7 @@
         <MODULEPATH id="juce_opengl" path="./juce-modules"/>
         <MODULEPATH id="juce_audio_utils" path="./juce-modules"/>
         <MODULEPATH id="juce_dsp" path="./juce-modules"/>
-        <MODULEPATH id="juceaap_audio_processors" path="./modules"/>
+        <MODULEPATH id="juceaap_audio_processors" path="./aap-modules"/>
       </MODULEPATHS>
     </ANDROIDSTUDIO>
     <CLION targetFolder="Builds/CLion" clionMakefileEnabled="1">
@@ -212,7 +212,7 @@
         <MODULEPATH id="juce_opengl" path="./juce-modules"/>
         <MODULEPATH id="juce_audio_utils" path="./juce-modules"/>
         <MODULEPATH id="juce_dsp" path="./juce-modules"/>
-        <MODULEPATH id="juceaap_audio_processors" path="./modules"/>
+        <MODULEPATH id="juceaap_audio_processors" path="./aap-modules"/>
       </MODULEPATHS>
     </CLION>
   </EXPORTFORMATS>
