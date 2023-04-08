@@ -2,7 +2,7 @@
 
 aap-juce-plugin-host is a port of JUCE AudioPluginHost (`JUCE/extras/AudioPluginHost`) to [aap-juce](https://github.com/atsushieno/aap-juce).
 
-It is so far a normative use case for of `juceaap_audio_processors` module (plugin hosting part). There could be simpler JUCE hosting application, but @atsushieno is a bit too lazy to actually do that(!). But seriously, there should be some good app, as this port is not giving best aap-juce experience by default.
+It used to be a normative use case for of `aap_audio_plugin_client` module (plugin hosting part), which is now taken by aap-juce-simple-host repo. This JUCE app port still works, but it is not giving best aap-juce experience (e.g. you cannot connect nodes by touches, without mouse).
 
 It should be noted that AudioPluginHost is not very optimal for AAP (very minimalistic changes to the original sources were made). The audio settings are not optimal for AAP and the audio output sounds crippled. JUCE plugins are, on the other hand, in general fine and they give good audio outputs through their AAP `MidiDeviceService`, for example.
 
